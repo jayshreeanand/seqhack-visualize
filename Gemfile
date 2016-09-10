@@ -40,3 +40,7 @@ group :development do
   gem 'byebug'
 end
 
+# Logging
+group :production, :staging do
+  gem 'rails_12factor'
+end
