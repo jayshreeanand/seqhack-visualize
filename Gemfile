@@ -32,6 +32,8 @@ gem 'cancancan'
 
 # Admin
 gem 'activeadmin', github: 'activeadmin'
+gem 'active_admin_jcrop'
+
 
 group :doc do
   gem 'sdoc', require: false
