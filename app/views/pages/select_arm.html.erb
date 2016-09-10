@@ -1,0 +1,34 @@
+<div class="parts-selector"> 
+    
+    <div class="header">
+      <h1> Arm</h1>
+      <a class="save btn btn-large btn-primary"> Save Arm</a>
+    </div>
+    
+    <div class="content">
+      <div class="transparent">
+        <%= image_tag("shirt.png", id: 'dress') %>
+      </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+  var coordinates = null;
+  
+  $(document).ready(function() {
+    $("#dress").Jcrop({
+      setSelect: [100, 100, 300, 300],
+      onSelect: updateCoordinates,
+      onChange: updateCoordinates
+    });
+  });
+  
+  var updateCoordinates = function(_coordinates) {
+    coordinates = _coordinates
+  }
+  
+  $(".save").click(function(event){
+    console.log(coordinates)
+  })
+  
+</script>

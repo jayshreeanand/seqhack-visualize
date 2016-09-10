@@ -3,4 +3,7 @@ class PagesController < ApplicationController
 
   def home
   end
+  
+  def select_parts
+  end
 end

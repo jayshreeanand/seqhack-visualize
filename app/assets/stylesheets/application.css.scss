@@ -1,3 +1,21 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'font-awesome';
+
+@import 'jcrop';
+
+.parts-selector {
+  padding-top: 5%;
+  text-align: center;
+}
+
+.header {
+  margin-bottom: 20px; 
+}
+
+.transparent {
+  margin: 0 auto;
+  height: 1024px;
+  width: 1024px;
+  background: image-url('transparent.png') repeat;
+}
