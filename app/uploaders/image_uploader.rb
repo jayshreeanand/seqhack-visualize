@@ -1,7 +1,11 @@
 # encoding: utf-8
-class ImageUploader < BaseImageUploader
+class ImageUploader < BaseUploader
   include CarrierWave::RMagick
 
+  def extension_white_list
+    %w(jpg jpeg gif png)
+  end
+  
   version :normal do
     process resize_to_fit: [360, 360]
   end
