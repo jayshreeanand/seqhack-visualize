@@ -269,4 +269,18 @@ ActiveAdmin.setup do |config|
   # of those filters by default here.
   #
   # config.include_default_association_filters = true
+   ActiveAdmin::ResourceController.class_eval do
+    def current_ability
+      @current_ability ||= AdminAbility.new(current_admin_user)
+    end
+
+    # By default, allow admins to access everything.
+    #
+    # For more fine-grained control, remove this method, which will
+    # delegate to action_parameter gem, which in turn expects
+    # separate Admin:<Model>Parameters classes to be created.
+    def permitted_params
+      params.permit!
+    end
+  end
 end
