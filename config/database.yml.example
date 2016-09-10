@@ -1,0 +1,23 @@
+base: &base
+  adapter: postgresql
+  encoding: utf8
+  username:
+  password:
+  host: 127.0.0.1
+  pool: 5
+
+development:
+  <<: *base
+  database: visualize_development
+
+test:
+  <<: *base
+  database: visualize_test
+
+staging:
+  <<: *base
+  database: visualize_staging
+
+production:
+  <<: *base
+  database: visualize_production
