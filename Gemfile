@@ -20,6 +20,12 @@ gem 'font-awesome-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 
+
+# Auth
+gem 'devise'
+gem 'cancancan'
+
+
 group :doc do
   gem 'sdoc', require: false
 end
