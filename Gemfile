@@ -30,6 +30,9 @@ gem 'devise'
 gem 'cancancan'
 
 
+# Admin
+gem 'activeadmin', github: 'activeadmin'
+
 group :doc do
   gem 'sdoc', require: false
 end
