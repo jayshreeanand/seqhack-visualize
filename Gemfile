@@ -32,6 +32,7 @@ end
 
 group :development, :test do
   gem 'byebug'
+  gem 'letter_opener'
 end
 
 group :development do
