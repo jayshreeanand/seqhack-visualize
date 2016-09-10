@@ -20,6 +20,10 @@ gem 'font-awesome-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 
+# Uploader
+gem 'fog'
+gem 'carrierwave'
+gem 'rmagick'
 
 # Auth
 gem 'devise'
@@ -38,7 +42,6 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
-  gem 'byebug'
 end
 
 # Logging
