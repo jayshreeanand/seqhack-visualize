@@ -15,6 +15,9 @@ ActiveAdmin.register User do
     column :arm_image do |user|
       image_tag user.arm_image.thumb.url
     end
+    column :generated_texture do |user|
+      image_tag user.generated_texture.thumb.url
+    end
   end
 
   form do |f|
@@ -26,6 +29,8 @@ ActiveAdmin.register User do
       f.input :front_image, as: :jcropable, jcrop_options: { showDimensions: true }
       f.input :back_image, as: :jcropable, jcrop_options: { showDimensions: true }
       f.input :arm_image, as: :jcropable, jcrop_options: { showDimensions: true }
+      f.input :generated_texture, as: :jcropable, jcrop_options: { showDimensions: true }
+
 
     end
     f.actions
