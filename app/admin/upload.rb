@@ -15,6 +15,21 @@ ActiveAdmin.register Upload do
     end
   end
 
+  show do
+    attributes_table do
+      row :user
+      row :front_image do
+        image_tag upload.front_image.normal.url
+      end
+      row :back_image do
+        image_tag upload.back_image.normal.url
+      end
+      row :arm_image do
+        image_tag upload.arm_image.normal.url
+      end
+    end
+  end
+
   form do |f|
     f.inputs 'Upload Details' do
       f.input :user
