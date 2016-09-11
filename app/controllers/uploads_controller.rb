@@ -32,7 +32,6 @@ class UploadsController < ApplicationController
     @upload = Upload.find(params[:id])
     @upload.crop_back_image
     @upload.save!
-
   end
 
   def crop_arm
