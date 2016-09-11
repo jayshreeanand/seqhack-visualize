@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Upload < ActiveRecord::Base
 
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
@@ -43,9 +45,18 @@ class Upload < ActiveRecord::Base
   end
   
   def download_images
-    File.write(resized_front_image, front_image.read)
-    File.write(resized_back_image, back_image.read)
-    File.write(resized_arm_image, arm_image.read)
+    open(resized_front_image, 'wb') do |file|
+      file << open(front_image.url).read
+    end
+    open(resized_back_image, 'wb') do |file|
+      file << open(back_image.url).read
+    end
+    open(resized_arm_image, 'wb') do |file|
+      file << open(arm_image.url).read
+    end
+    # File.write(resized_front_image, front_image.read)
+    # File.write(resized_back_image, back_image.read)
+    # File.write(resized_arm_image, arm_image.read)
   end
   
   def generate_texture
