@@ -4,6 +4,12 @@
 
 @import 'jcrop';
 
+.site-wrapper {
+  background-image: image-url('hero.png');
+  background-size: cover;
+  background-position: center;
+}
+
 .parts-selector {
   padding-top: 5%;
   text-align: center;
@@ -180,7 +186,6 @@
 .btn-default:focus {
   color: #fff;
   background-color: red;
-  border: 1px solid #fff;
 }
 
  .btn-lg {
@@ -217,4 +222,9 @@
   width: 15%;
   background-color: gray;
   height: 100%;
+}
+
+
+.btn-default {
+  border: none;
 }
