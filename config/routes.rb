@@ -14,11 +14,11 @@ Rails.application.routes.draw do
   get 'models/UCS_config.json' => 'pages#ucs_config'
   get 'js/umich_ucs.js' => 'pages#umich_ucs'
   get 'skins/Asian_Male.jpg' => 'pages#asian_male'
-
   resources :uploads do
     collection do
       get :new
       post :create
+      get :index
     end
   end
 

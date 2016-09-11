@@ -15,7 +15,7 @@ class Upload < ActiveRecord::Base
   mount_uploader :arm_image, ImageUploader
   mount_uploader :generated_texture, ImageUploader
 
-  
+
   def crop_front_image
     front_image.recreate_versions! if crop_front_x.present?
   end

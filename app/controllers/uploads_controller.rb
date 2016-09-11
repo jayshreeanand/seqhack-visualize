@@ -3,6 +3,10 @@ class UploadsController < ApplicationController
 
   before_filter :authenticate_user!
 
+  def index
+    @uploads = current_user.uploads.all
+  end
+
   def new
     @upload = Upload.new(user: current_user)
   end
@@ -19,7 +23,7 @@ class UploadsController < ApplicationController
   end
 
   def show
-    @uploads = current_user.uploads.all
+    @upload = Upload.find(params[:id])
   end
 
   def crop_front
