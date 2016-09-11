@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       get :new
       post :create
       get :index
+      get :list
     end
   end
-
 end

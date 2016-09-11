@@ -3,7 +3,7 @@ class UploadsController < ApplicationController
 
   before_filter :authenticate_user!
 
-  def index
+  def list
     @uploads = current_user.uploads.all
   end
 
