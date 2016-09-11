@@ -5,7 +5,8 @@ class ImageUploader < BaseUploader
 
   process :store_dimensions
   process :active_admin_crop
-
+  # process :crop
+  
   def extension_white_list
     %w(jpg jpeg gif png)
   end
@@ -24,4 +25,18 @@ class ImageUploader < BaseUploader
       model.send(detail_attribute+'=', { width: img.columns, height: img.rows })
     end
   end
+
+  # def crop
+  #   if model.methods.include?(:crop_x) && model.crop_x.present?
+  #     manipulate! do |img|
+  #       x = model.crop_x
+  #       y = model.crop_y
+  #       w = model.crop_w
+  #       h = model.crop_h
+
+  #       img.crop("#{w}x#{h}+#{x}+#{y}")
+  #       img
+  #     end
+  #   end
+  # end
 end

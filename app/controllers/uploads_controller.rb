@@ -22,6 +22,20 @@ class UploadsController < ApplicationController
     @uploads = current_user.uploads.all
   end
 
+  def crop_front
+    @upload = Upload.find(params[:id])
+  end
+
+  def crop_back
+    @upload = Upload.find(params[:id])
+
+  end
+
+  def crop_arm
+    @upload = Upload.find(params[:id])
+    
+  end
+
   private
   def upload_params
     params.require(:upload).permit(:front_image, :back_image, :arm_image)

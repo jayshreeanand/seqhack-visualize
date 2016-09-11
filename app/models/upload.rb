@@ -2,7 +2,7 @@ require 'open-uri'
 
 class Upload < ActiveRecord::Base
 
-  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+  attr_accessor :crop_front_x, :crop_front_y, :crop_front_w, :crop_front_h,  :crop_back_x, :crop_back_y, :crop_back_w, :crop_back_h,  :crop_arm_x, :crop_arm_y, :crop_arm_w, :crop_arm_h
   
   belongs_to :user
 
@@ -16,6 +16,19 @@ class Upload < ActiveRecord::Base
   mount_uploader :generated_texture, ImageUploader
 
   
+  def crop_front_image
+    front_image.recreate_versions! if crop_front_x.present?
+  end
+
+  def crop_back_image
+    back_image.recreate_versions! if crop_back_x.present?
+  end
+
+  def crop_arm_image
+    arm_image.recreate_versions! if crop_arm_x.present?
+  end
+
+
   def texture_background
     Rails.root.join("app", "assets", "images", "texture_background.jpg")
   end

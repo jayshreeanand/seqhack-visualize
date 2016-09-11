@@ -11,6 +11,15 @@ class PagesController < ApplicationController
   
   def select_parts
   end
+
+  def select_front
+  end
+
+  def select_back
+  end
+
+  def select_arm
+  end
   
   def view_model
     render(:layout => "layouts/model")
