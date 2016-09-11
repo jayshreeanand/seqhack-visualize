@@ -60,21 +60,21 @@ class Upload < ActiveRecord::Base
   end
   
   def download_images
-    if Rails.env.development?
+    # if Rails.env.development?
       FileUtils.copy(front_image.file.path, resized_front_image) if front_image.file.present?
       FileUtils.copy(back_image.file.path, resized_back_image) if back_image.file.present?
       FileUtils.copy(arm_image.file.path, resized_arm_image) if arm_image.file.present?
-    else
-      open(resized_front_image, 'wb') do |file|
-        file << open(front_image.url).read
-      end
-      open(resized_back_image, 'wb') do |file|
-        file << open(back_image.url).read
-      end
-      open(resized_arm_image, 'wb') do |file|
-        file << open(arm_image.url).read
-      end
-    end
+    # else
+    #   open(resized_front_image, 'wb') do |file|
+    #     file << open(front_image.url).read
+    #   end
+    #   open(resized_back_image, 'wb') do |file|
+    #     file << open(back_image.url).read
+    #   end
+    #   open(resized_arm_image, 'wb') do |file|
+    #     file << open(arm_image.url).read
+    #   end
+    # end
   end
   
   def generate_texture
