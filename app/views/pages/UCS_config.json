@@ -1,0 +1,10 @@
+{
+	"baseUrl":		"",
+	"character":	"./js/umich_ucs.js",
+	"skins": 		["Asian_Male.jpg"],
+	"morphs": 		["Obesity", "Femininity", "Musculature", "Age", "Skinniness"],
+	"x":	0,
+	"y":	-500,
+	"z":	-300,
+	"s":	30
+}

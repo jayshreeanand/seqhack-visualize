@@ -13,4 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require_tree .
+//= require jcrop
+//= require three
+//= require UCSCharacter
+//= require Detector
+//= require dat.gui.min
+//= require OrbitControls
