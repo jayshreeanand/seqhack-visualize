@@ -12,12 +12,12 @@ CarrierWave.configure do |config|
     config.fog_directory = Rails.application.secrets.fog_directory
     config.storage = :fog
     config.remove_previously_stored_files_after_update = true
-    config.asset_host = "https://s3.amazonaws.com/#{Rails.application.secrets.fog_directory}"
   else
     config.storage = :file
   end
 
   config.asset_host = ENV['ASSET_HOST']
+
 
   if Rails.env.test?
     config.enable_processing = false
