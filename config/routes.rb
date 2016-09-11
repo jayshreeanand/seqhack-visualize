@@ -9,5 +9,10 @@ Rails.application.routes.draw do
   get 'home' => 'pages#home'
   get 'dashboard' => 'pages#dashboard'
 
+  resources :uploads do
+    collection do
+      post :create
+    end
+  end
 
 end
