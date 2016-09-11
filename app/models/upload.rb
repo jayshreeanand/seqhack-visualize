@@ -45,29 +45,45 @@ class Upload < ActiveRecord::Base
   end
   
   def download_images
-    open(resized_front_image, 'wb') do |file|
-      file << open(front_image.url).read
+    if Rails.env.development?
+      FileUtils.copy(front_image.file.path, resized_front_image) if front_image.file.present?
+      FileUtils.copy(back_image.file.path, resized_back_image) if back_image.file.present?
+      FileUtils.copy(arm_image.file.path, resized_arm_image) if arm_image.file.present?
+    else
+      open(resized_front_image, 'wb') do |file|
+        file << open(front_image.url).read
+      end
+      open(resized_back_image, 'wb') do |file|
+        file << open(back_image.url).read
+      end
+      open(resized_arm_image, 'wb') do |file|
+        file << open(arm_image.url).read
+      end
     end
-    open(resized_back_image, 'wb') do |file|
-      file << open(back_image.url).read
-    end
-    open(resized_arm_image, 'wb') do |file|
-      file << open(arm_image.url).read
-    end
-    # File.write(resized_front_image, front_image.read)
-    # File.write(resized_back_image, back_image.read)
-    # File.write(resized_arm_image, arm_image.read)
   end
   
   def generate_texture
-    base_texture = Magick::Image.read(texture_background)[0]
-    
     download_images
+
+    final = Magick::Image.read(texture_background)[0]
     
-    front = Magick::Image.read(resized_front_image.path)[0]
+    # Upload front side
+    front = Magick::Image.read(resized_front_image)[0]
     front.resize_to_fill!(280, 325)
     
-    result = base_texture.composite(front, Magick::NorthWestGravity, 125, 30, Magick::OverCompositeOp)
-    result.write(final_texture)
+    final = base_texture.composite(front, Magick::NorthWestGravity, 125, 30, Magick::OverCompositeOp)
+
+    # add first arm
+    arm = Magick::Image.read(resized_arm_image)[0]
+    arm.resize_to_fill!(260, 180)
+    
+    final = final.composite(arm, Magick::NorthWestGravity, 750, 20, Magick::OverCompositeOp)
+  
+    # Add next arm
+    arm.rotate!(180)
+    final = final.composite(arm, Magick::NorthWestGravity, 615, 200, Magick::OverCompositeOp)
+    
+    # write texture to file
+    final.write(final_texture)
   end
 end
