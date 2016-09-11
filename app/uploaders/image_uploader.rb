@@ -14,11 +14,14 @@ class ImageUploader < BaseUploader
     process resize_to_fit: [100, 100]
   end
 
+  version :normal do
+  end
+  
   def store_dimensions
     if file && model
       img = ::Magick::Image::read(file.file).first
-      model.width = img.columns
-      model.height = img.rows
+      detail_attribute = "#{mounted_as}_details"
+      model.send(detail_attribute+'=', { width: img.columns, height: img.rows })
     end
   end
 end

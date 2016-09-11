@@ -13,6 +13,10 @@ ActiveAdmin.register Upload do
     column :arm_image do |upload|
       image_tag upload.arm_image.thumb.url
     end
+    column :front_image_details
+    column :back_image_details
+    column :arm_image_details
+
   end
 
   show do
@@ -27,6 +31,9 @@ ActiveAdmin.register Upload do
       row :arm_image do
         image_tag upload.arm_image.normal.url
       end
+      row :front_image_details
+      row :back_image_details
+      row :arm_image_details
     end
   end
 
