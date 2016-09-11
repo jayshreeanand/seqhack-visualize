@@ -24,16 +24,21 @@ class UploadsController < ApplicationController
 
   def crop_front
     @upload = Upload.find(params[:id])
+    @upload.crop_front_image
+    @upload.save!
   end
 
   def crop_back
     @upload = Upload.find(params[:id])
+    @upload.crop_back_image
+    @upload.save!
 
   end
 
   def crop_arm
     @upload = Upload.find(params[:id])
-    
+    @upload.crop_back_image
+    @upload.save!
   end
 
   private

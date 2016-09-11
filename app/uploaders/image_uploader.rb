@@ -5,7 +5,7 @@ class ImageUploader < BaseUploader
 
   process :store_dimensions
   process :active_admin_crop
-  # process :crop
+  process :crop
   
   def extension_white_list
     %w(jpg jpeg gif png)
@@ -26,17 +26,44 @@ class ImageUploader < BaseUploader
     end
   end
 
-  # def crop
-  #   if model.methods.include?(:crop_x) && model.crop_x.present?
-  #     manipulate! do |img|
-  #       x = model.crop_x
-  #       y = model.crop_y
-  #       w = model.crop_w
-  #       h = model.crop_h
+  def crop
+    if mounted_as == 'front_image'
+      if model.methods.include?(:crop_front_x) && model.crop_front_x.present?
+        manipulate! do |img|
+          x = model.crop_front_x
+          y = model.crop_front_y
+          w = model.crop_front_w
+          h = model.crop_front_h
 
-  #       img.crop("#{w}x#{h}+#{x}+#{y}")
-  #       img
-  #     end
-  #   end
-  # end
+          img.crop("#{w}x#{h}+#{x}+#{y}")
+          img
+        end
+      end
+    elsif mounted_as == 'back_image'
+      if model.methods.include?(:crop_back_x) && model.crop_back_x.present?
+        manipulate! do |img|
+          x = model.crop_back_x
+          y = model.crop_back_y
+          w = model.crop_back_w
+          h = model.crop_back_h
+
+          img.crop("#{w}x#{h}+#{x}+#{y}")
+          img
+        end
+      end
+    elsif mounted_as == 'arm_image'
+      if model.methods.include?(:crop_arm_x) && model.crop_arm_x.present?
+        manipulate! do |img|
+          x = model.crop_arm_x
+          y = model.crop_arm_y
+          w = model.crop_arm_w
+          h = model.crop_arm_h
+
+          img.crop("#{w}x#{h}+#{x}+#{y}")
+          img
+        end
+      end
+    end
+      
+  end
 end
