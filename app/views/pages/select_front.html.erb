@@ -21,6 +21,15 @@
       onSelect: updateCoordinates,
       onChange: updateCoordinates
     });
+
+    $('#dress').on('cropmove cropend',function(e,s,coords){
+      $('#crop_front_x').val(coords.x);
+      $('#crop_front_y').val(coords.y);
+      $('#crop_front_w').val(coords.w);
+      $('#crop_front_h').val(coords.h);
+    });
+
+
   });
   
   var updateCoordinates = function(_coordinates) {
