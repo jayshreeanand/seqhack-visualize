@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   get "select-back" => "pages#select_back"
   get "select-arm" => "pages#select_arm"
   root 'pages#home'
+  get 'home' => 'pages#home'
+  get 'dashboard' => 'pages#dashboard'
+
+
 end

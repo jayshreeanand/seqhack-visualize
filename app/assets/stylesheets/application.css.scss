@@ -19,3 +19,186 @@
   width: 1024px;
   background: image-url('transparent.png') repeat;
 }
+
+.body {
+  background-color: #F8F8F8;
+
+}
+#file{ width:0; height:0; } 
+
+.file-upload-button {
+  background-color: red;
+  padding: 10 60px;
+}
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+  text-align: left;
+}
+.form-signin label {
+  margin-top: 15px;
+  color: #707070;
+}
+
+.form-signin i {
+  font-size: 12px;
+  color: #95999a;
+}
+
+.form-signin-heading {
+  text-align: center
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+
+/* Uploads */
+
+.upload-box {
+  margin-bottom: 30px;
+
+  .thumbnail {
+    background-color: #FEFEFE;
+    height: 450px;
+    display: block;
+    min-height: 450px;
+  }
+}
+.upload-title {
+  display: block;
+  height: 50px;
+  margin-bottom: 5px;
+  color: black;
+}
+.upload-title a {
+  color : black;
+}
+
+.nav-sidebar {
+  margin-top: 60px;
+
+
+}
+.nav-sidebar > li {
+  margin-top: 30px;
+
+}
+
+.nav-sidebar > li > a {
+  color: #707070;
+
+}
+.sidebar {
+  background-color: white;
+}
+
+
+
+
+.image-thumbnail {
+   
+   display: block;
+    max-height: 100% !important;
+    max-width: 100% !important;
+}
+   
+.image-box {
+  margin-top: 20px;
+  margin-right: 15px;
+  display: block;
+  min-height: 100px;
+  vertical-align: bottom;
+}
+
+.navbar-default {
+  min-height: 100px;
+  background-color: white;
+  border-bottom: 2px solid #BABAB8;
+  color: #000;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #707070;
+
+}
+
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+  color: #707070;
+}
+
+.container{
+  margin-top: 60px;
+}
+.discount-tip {
+  color: #3366FF;
+}
+.old-price {
+  color: #FF6666;
+  font-size: 12px;
+}
+.navbar-header {
+  margin-top: 0px;
+  padding-left: 50px;
+}
+
+.navbar-nav {
+  padding-top: 40px;
+}
+
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #fff;
+  background-color: red;
+  border: 1px solid #fff;
+}
+
+ .btn-lg {
+  padding: 10px 90px;
+
+}
+
+.psd-img {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.main-container {
+  min-height: 400px;
+}
+.download-button {
+  margin-top: 20px;
+}
+.file-upload-text {
+  font-size: 20px;
+  color: #BABAB8;
+}
