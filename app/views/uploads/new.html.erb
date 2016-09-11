@@ -1,16 +1,24 @@
-<h2>Upload you files here</h2>
+<div class =" upload-container">
+  <%= form_for(@upload,  url: uploads_path(@upload), html: { method: :post }) do |f| %>
 
-<%= form_for(@upload,  url: uploads_path(@upload), html: { method: :post }) do |f| %>
+    <div class="field">
+      <%= f.label :front_image, class: "sr-only"  %><br />
+      <%= f.file_field :front_image, autofocus: true, class: "form-control", placeholder: "Upload Garment front image"  %>
+    </div>
 
-  <div class="field">
-    <%= f.label :front_image, class: "sr-only"  %><br />
-    <%= f.email_field :front_image, autofocus: true, class: "form-control", placeholder: "email address"  %>
-  </div>
+    <div class="field">
+      <%= f.label :front_image, class: "sr-only"  %><br />
+      <%= f.file_field :front_image, autofocus: true, class: "form-control", placeholder: "Upload Garment back image"  %>
+    </div>
 
 
-  <div class="actions">
-    <%= f.submit "Upload", class: "btn btn-danger"  %>
-  </div>
-<% end %>
+    <div class="field">
+      <%= f.label :front_image, class: "sr-only"  %><br />
+      <%= f.file_field :front_image, autofocus: true, class: "form-control", placeholder: "Upload Garment arm image"  %>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <div class="actions">
+      <%= f.submit "Upload", class: "btn btn-danger"  %>
+    </div>
+  <% end %>
+</div>

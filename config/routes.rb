@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :uploads do
     collection do
+      get :new
       post :create
     end
   end
