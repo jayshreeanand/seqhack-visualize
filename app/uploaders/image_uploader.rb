@@ -3,7 +3,7 @@ class ImageUploader < BaseUploader
   include CarrierWave::RMagick
   include ActiveAdminJcrop::AssetEngine::CarrierWave
 
-  process :store_dimensions
+  # process :store_dimensions
   process :active_admin_crop
   process :crop
   

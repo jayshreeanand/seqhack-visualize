@@ -83,12 +83,14 @@ class Upload < ActiveRecord::Base
     # Upload front side
     front = Magick::Image.read(resized_front_image)[0]
     front.resize_to_fill!(280, 325)
+    front.write(resized_front_image)
     
-    final = base_texture.composite(front, Magick::NorthWestGravity, 125, 30, Magick::OverCompositeOp)
+    final = final.composite(front, Magick::NorthWestGravity, 125, 30, Magick::OverCompositeOp)
 
     # add first arm
     arm = Magick::Image.read(resized_arm_image)[0]
     arm.resize_to_fill!(260, 180)
+    arm.write(resized_arm_image)
     
     final = final.composite(arm, Magick::NorthWestGravity, 750, 20, Magick::OverCompositeOp)
   
@@ -96,7 +98,27 @@ class Upload < ActiveRecord::Base
     arm.rotate!(180)
     final = final.composite(arm, Magick::NorthWestGravity, 615, 200, Magick::OverCompositeOp)
     
+    # Split back into two
+    back = Magick::Image.read(resized_back_image)[0]
+    back.resize_to_fill!(230, 325)
+    
+    back_left = back.crop(Magick::NorthWestGravity, 0, 0, 115, 325, true)
+    back_right = back.crop(Magick::NorthWestGravity, 115, 0, 115, 325, true)
+    
+    back_left.write(resized_back_left)
+    back_right.write(resized_back_right)
+    
+    # add back left
+    final = final.composite(back_left, Magick::NorthWestGravity, 10, 30, Magick::OverCompositeOp)
+    
+    # add right
+    back_right.rotate!(180)
+    final = final.composite(back_right, Magick::NorthWestGravity, 405, 30, Magick::OverCompositeOp)
+    
     # write texture to file
     final.write(final_texture)
+    
+    self.generated_texture = File.open(final_texture)
+    self.save!
   end
 end
